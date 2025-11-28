@@ -1,0 +1,49 @@
+{% extends 'assets/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center mb-5" style="background-color: blue; color: white; padding: 20px; border-radius: 10px;">Military Assessment System</h1>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dashboard</h5>
+                            <p class="card-text">View key metrics, balances, and asset movements with filters and detailed pop-ups.</p>
+                            <a href="{% url 'dashboard' %}" class="btn btn-primary">Go to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Purchases Page</h5>
+                            <p class="card-text">Record and view historical purchases with date and equipment-type filters.</p>
+                            <a href="{% url 'purchases' %}" class="btn btn-primary">Go to Purchases</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Transfer Page</h5>
+                            <p class="card-text">Facilitate asset transfers between bases with clear history and timestamps.</p>
+                            <a href="{% url 'transfers' %}" class="btn btn-primary">Go to Transfers</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Assignments & Expenditures Page</h5>
+                            <p class="card-text">Assign assets to personnel and track expended assets.</p>
+                            <a href="{% url 'assignments' %}" class="btn btn-primary">Go to Assignments</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

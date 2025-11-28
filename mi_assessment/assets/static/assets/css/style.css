@@ -1,0 +1,201 @@
+/* Custom styles for the Military Asset Management System */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.table th {
+    background: linear-gradient(45deg, #343a40, #495057);
+    color: white;
+    border: none;
+    font-weight: 600;
+}
+
+.table td {
+    border: none;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-weight: 500;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(248, 249, 250, 0.8);
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    padding: 10px 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 600;
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #20c997, #17a2b8);
+}
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+.metric-card {
+    background: linear-gradient(45deg, #007bff, #6610f2);
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Custom backgrounds for metric cards */
+.card.bg-success {
+    background: linear-gradient(135deg, #28a745, #20c997) !important;
+    border: 2px solid #28a745;
+    color: #ffffff !important;
+}
+
+.card.bg-success .card-title,
+.card.bg-success .card-text {
+    color: #ffffff !important;
+}
+
+.card.bg-info {
+    background: linear-gradient(135deg, #17a2b8, #138496) !important;
+    border: 2px solid #17a2b8;
+    color: #ffffff !important;
+}
+
+.card.bg-info .card-title,
+.card.bg-info .card-text {
+    color:white!important;
+}
+
+.card.bg-warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14) !important;
+    border: 2px solid #ffc107;
+    color: #212529 !important;
+}
+
+.card.bg-warning .card-title,
+.card.bg-warning .card-text {
+    color: #212529 !important;
+}
+
+.card.bg-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333) !important;
+    border: 2px solid #dc3545;
+    color: #ffffff !important;
+}
+
+.card.bg-danger .card-title,
+.card.bg-danger .card-text {
+    color: #ffffff !important;
+}

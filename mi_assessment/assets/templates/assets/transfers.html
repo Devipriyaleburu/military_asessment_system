@@ -1,0 +1,37 @@
+{% extends 'assets/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1 class="mb-4">Transfers</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Add Transfer</button>
+</form>
+<hr>
+<h2>Transfer History</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Asset</th>
+            <th>From Base</th>
+            <th>To Base</th>
+            <th>Quantity</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transfer in transfers %}
+        <tr>
+            <td>{{ transfer.asset }}</td>
+            <td>{{ transfer.from_base }}</td>
+            <td>{{ transfer.to_base }}</td>
+            <td>{{ transfer.quantity }}</td>
+            <td>{{ transfer.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="text-center mt-4">
+    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+</div>
+{% endblock %}

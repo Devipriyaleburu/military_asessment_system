@@ -1,0 +1,14 @@
+- [ ] Update dashboard view in assets/views.py to include assets in context and fix calculations
+- [ ] Enhance dashboard template (assets/templates/assets/dashboard.html) to display key metrics, add filters, and implement pop-up for Net Movement
+- [ ] Add purchases view in assets/views.py (record and view purchases)
+- [ ] Add transfers view in assets/views.py (facilitate and view transfers)
+- [ ] Add assignments view in assets/views.py (assign and expend assets)
+- [ ] Create forms in assets/forms.py for purchases, transfers, assignments
+- [ ] Update assets/urls.py to include paths for purchases, transfers, assignments
+- [ ] Implement purchases template (assets/templates/assets/purchases.html)
+- [ ] Implement transfers template (assets/templates/assets/transfers.html)
+- [ ] Implement assignments template (assets/templates/assets/assignments.html)
+- [ ] Enhance CSS in assets/static/assets/css/style.css for beautiful, attractive, responsive interface
+- [ ] Ensure RBAC is enforced in all views
+- [ ] Run migrations if needed
+- [ ] Test the application locally

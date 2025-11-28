@@ -1,0 +1,147 @@
+{% extends 'assets/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Military Asset Management Dashboard</h1>
+
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Filters</h5>
+        </div>
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-3">
+                    <label for="base" class="form-label">Base</label>
+                    <select name="base" id="base" class="form-select">
+                        <option value="">All Bases</option>
+                        {% for base in bases %}
+                        <option value="{{ base.id }}" {% if selected_base == base.id|stringformat:"s" %}selected{% endif %}>{{ base.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="type" class="form-label">Equipment Type</label>
+                    <select name="type" id="type" class="form-select">
+                        <option value="">All Types</option>
+                        {% for asset_type in asset_types %}
+                        <option value="{{ asset_type }}" {% if selected_type == asset_type %}selected{% endif %}>{{ asset_type }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <input type="date" name="start_date" id="start_date" class="form-control" value="{{ start_date }}">
+                </div>
+                <div class="col-md-2">
+                    <label for="end_date" class="form-label">End Date</label>
+                    <input type="date" name="end_date" id="end_date" class="form-control" value="{{ end_date }}">
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Clear</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-center bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Opening Balance</h5>
+                    <h3>{{ total_opening }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Closing Balance</h5>
+                    <h3>{{ total_closing }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center bg-warning text-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Net Movement</h5>
+                    <h3><a href="#" data-bs-toggle="modal" data-bs-target="#netMovementModal">{{ net_movement }}</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center bg-danger text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Assigned</h5>
+                    <h3>{{ total_assigned }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assets Table -->
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5>Assets Overview</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Asset Name</th>
+                        <th>Type</th>
+                        <th>Base</th>
+                        <th>Opening Balance</th>
+                        <th>Closing Balance</th>
+                        <th>Net Movement</th>
+                        <th>Assigned</th>
+                        <th>Expended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asset in assets %}
+                    <tr>
+                        <td>{{ asset.name }}</td>
+                        <td>{{ asset.type }}</td>
+                        <td>{{ asset.base.name }}</td>
+                        <td>{{ asset.opening_balance }}</td>
+                        <td>{{ asset.closing_balance }}</td>
+                        <td>{{ asset.net_movement }}</td>
+                        <td>{{ asset.assigned }}</td>
+                        <td>{{ asset.expended }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Logout Button -->
+    <div class="text-center mt-4">
+        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+
+<!-- Net Movement Modal -->
+<div class="modal fade" id="netMovementModal" tabindex="-1" aria-labelledby="netMovementModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="netMovementModalLabel">Net Movement Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Purchases:</strong> {{ total_purchases }}</p>
+                <p><strong>Transfers In:</strong> {{ total_transfers_in }}</p>
+                <p><strong>Transfers Out:</strong> {{ total_transfers_out }}</p>
+                <p><strong>Net Movement:</strong> {{ net_movement }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
